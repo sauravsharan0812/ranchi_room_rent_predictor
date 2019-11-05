@@ -4,23 +4,20 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import pickle
 
-dataset = pd.read_csv('housing.csv')
+df = pd.read_csv('housing.csv')
 
 
 
-X = dataset.iloc[:, :-1].values
+
 
 # Encoding categorical data
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
-labelencoder = LabelEncoder()
-X[:, 3] = labelencoder.fit_transform(X[:, 3])
-onehotencoder = OneHotEncoder(categorical_features = [2])
-X = onehotencoder.fit_transform(X).toarray()
+label_encoder = LabelEncoder()
+df['place']= label_encoder.fit_transform(df['place'])
 
 
-
-
-y = dataset.iloc[:, -1].values
+X = df.iloc[:, :-1]
+y = df.iloc[:, -1]
 
 #Splitting Training and Test Set
 #Since we have a very small dataset, we will train our model with all availabe data.
@@ -33,5 +30,8 @@ regressor.fit(X, y)
 
 # Saving model to disk
 pickle.dump(regressor, open('model.pkl','wb'))
+
+
+
 
 
