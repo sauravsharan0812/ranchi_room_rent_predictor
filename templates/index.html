@@ -17,10 +17,11 @@
 
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
-    	<input type="text" name="rooms" placeholder="Rooms" required="required" />
-        <input type="text" name="garden" placeholder="Garden" required="required" />
-		<input type="text" name="washroom" placeholder="Wash rooms" required="required" />
+    	<input type="text" name="rooms" placeholder="rooms" required="required" />
+        <input type="text" name="garden" placeholder="garden" required="required" />
+		<input type="text" name="washroom" placeholder="washroom" required="required" />
 		<input type="text" name="place" placeholder="place" required="required" />
+		
 
         <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
     </form>
@@ -34,3 +35,4 @@
 
 </body>
 </html>
+
